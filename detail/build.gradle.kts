@@ -5,7 +5,9 @@ plugins {
     hilt
 }
 
-androidLibraryConfig()
+androidLibraryConfig {
+    withCompose()
+}
 
 dependencies {
     implementation(project(Modules.navigation))

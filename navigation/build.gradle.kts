@@ -3,7 +3,9 @@ plugins {
     kotlin("android")
 }
 
-androidLibraryConfig()
+androidLibraryConfig {
+    withCompose()
+}
 
 dependencies {
     api(Dependencies.Navigation.runtime)

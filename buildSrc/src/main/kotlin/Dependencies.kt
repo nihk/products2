@@ -4,7 +4,6 @@ object Dependencies {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val biometric = "androidx.biometric:biometric:${Versions.biometric}"
     const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
-    const val coil = "io.coil-kt:coil:${Versions.coil}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val dataStore = "androidx.datastore:datastore:${Versions.dataStore}"
@@ -49,6 +48,11 @@ object Dependencies {
         const val lifecycle = "androidx.camera:camera-lifecycle:${Versions.cameraX}"
         const val view = "androidx.camera:camera-view:${Versions.cameraXExt}"
         const val extensions = "androidx.camera:camera-extensions:${Versions.cameraXExt}"
+    }
+
+    object Coil {
+        const val coil = "io.coil-kt:coil:${Versions.coil}"
+        const val compose = "io.coil-kt:coil-compose:${Versions.coil}"
     }
 
     object Compose {

@@ -9,7 +9,7 @@ import nick.template.list.data.DefaultProductListRepository
 import nick.template.list.data.ProductListRepository
 import nick.template.list.ui.ProductListScreen
 import nick.template.navigation.Screen
-import nick.template.remote.client.DefaultProductsClient
+import nick.template.remote.client.RetrofitProductsClient
 import nick.template.remote.client.ProductsClient
 
 @Module
@@ -23,5 +23,5 @@ interface ProductListModule {
     fun productListRepository(repository: DefaultProductListRepository): ProductListRepository
 
     @Binds
-    fun productsClient(client: DefaultProductsClient): ProductsClient
+    fun productsClient(client: RetrofitProductsClient): ProductsClient
 }

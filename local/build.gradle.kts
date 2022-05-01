@@ -4,9 +4,7 @@ plugins {
     ksp
 }
 
-androidLibraryConfig {
-    packagingOptions.resources.excludes.addAll(setOf("META-INF/AL2.0", "META-INF/LGPL2.1"))
-}
+androidLibraryConfig()
 
 dependencies {
     implementation(Dependencies.Room.runtime)

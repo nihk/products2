@@ -37,6 +37,16 @@ fun Project.androidLibraryConfig(extras: (LibraryExtension.() -> Unit) = {}) = a
     extras()
 }
 
+fun LibraryExtension.withCompose() {
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.compose
+    }
+
+    buildFeatures {
+        compose = true
+    }
+}
+
 private fun <T : BaseExtension> Project.androidConfig() = android<T>().apply {
     repositories.addProjectDefaults()
 

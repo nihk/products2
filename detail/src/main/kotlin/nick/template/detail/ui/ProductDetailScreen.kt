@@ -1,12 +1,7 @@
 package nick.template.detail.ui
 
 import android.os.Bundle
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
@@ -22,20 +17,15 @@ class ProductDetailScreen @Inject constructor() : Screen {
 
     @Composable
     override fun Content(arguments: Bundle?) {
-        val id = requireNotNull(arguments?.getString(ArgId))
-        Box(
-            modifier = Modifier
-                .background(color = Color.Green)
-                .fillMaxSize()
-        )
+
     }
 
     companion object {
-        const val Name = "product-detail"
         private const val ArgId = "id"
+        const val Name = "product-detail/{$ArgId}"
 
         fun route(id: String): String {
-            return "${Name}/$id"
+            return Name.replace(ArgId, id)
         }
     }
 }

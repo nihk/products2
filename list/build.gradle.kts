@@ -5,7 +5,9 @@ plugins {
     hilt
 }
 
-androidLibraryConfig()
+androidLibraryConfig {
+    withCompose()
+}
 
 dependencies {
     implementation(project(Modules.navigation))
@@ -17,6 +19,7 @@ dependencies {
     implementation(Dependencies.Dagger.runtime)
     implementation(Dependencies.Dagger.Hilt.runtime)
     implementation(Dependencies.Dagger.Hilt.Jetpack.navigation)
+    implementation(Dependencies.Coil.compose)
     withCompose()
 
     kapt(Dependencies.Dagger.compiler)

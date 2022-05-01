@@ -15,7 +15,7 @@ interface ProductsClient {
     suspend fun products(): List<Product>
 }
 
-class DefaultProductsClient @Inject constructor(
+class RetrofitProductsClient @Inject constructor(
     appResources: Resources,
     logger: Logger
 ) : ProductsClient {
