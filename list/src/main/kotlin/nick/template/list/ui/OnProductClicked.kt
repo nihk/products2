@@ -1,5 +1,5 @@
 package nick.template.list.ui
 
-interface ProductClicks {
+interface OnProductClicked {
     suspend fun onProductClicked(id: String)
 }

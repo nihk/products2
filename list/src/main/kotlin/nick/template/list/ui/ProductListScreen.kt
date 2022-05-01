@@ -11,7 +11,7 @@ import javax.inject.Inject
 import nick.template.navigation.Screen
 
 class ProductListScreen @Inject constructor() : Screen {
-    override val name: String = "product-list"
+    override val name: String = Name
 
     @Composable
     override fun Content(arguments: Bundle?) {
@@ -20,5 +20,9 @@ class ProductListScreen @Inject constructor() : Screen {
                 .background(color = Color.Red)
                 .fillMaxSize()
         )
+    }
+
+    companion object {
+        const val Name = "product-list"
     }
 }

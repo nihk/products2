@@ -9,6 +9,8 @@ import nick.template.list.data.DefaultProductListRepository
 import nick.template.list.data.ProductListRepository
 import nick.template.list.ui.ProductListScreen
 import nick.template.navigation.Screen
+import nick.template.remote.client.DefaultProductsClient
+import nick.template.remote.client.ProductsClient
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -19,4 +21,7 @@ interface ProductListModule {
 
     @Binds
     fun productListRepository(repository: DefaultProductListRepository): ProductListRepository
+
+    @Binds
+    fun productsClient(client: DefaultProductsClient): ProductsClient
 }

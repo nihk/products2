@@ -14,8 +14,6 @@ dependencies {
     implementation(project(Modules.remote))
     implementation(project(Modules.logging))
 
-    implementation(Dependencies.Navigation.runtime)
-    implementation(Dependencies.Navigation.compose)
     implementation(Dependencies.Dagger.runtime)
     implementation(Dependencies.Dagger.Hilt.runtime)
     implementation(Dependencies.Dagger.Hilt.Jetpack.navigation)

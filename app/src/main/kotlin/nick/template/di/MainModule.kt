@@ -7,6 +7,5 @@ import dagger.hilt.android.components.ActivityComponent
 @Module
 @InstallIn(ActivityComponent::class)
 interface MainModule {
-    companion object {
-    }
+
 }

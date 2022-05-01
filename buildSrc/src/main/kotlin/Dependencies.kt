@@ -76,8 +76,8 @@ object Dependencies {
             const val compiler = "com.google.dagger:hilt-compiler:${Versions.dagger}"
 
             object Jetpack {
-                const val navigation = "androidx.hilt-navigation-compose:${Versions.hiltJetpack}"
-                const val compiler = "androidx.hilt-compiler:${Versions.hiltJetpack}"
+                const val navigation = "androidx.hilt:hilt-navigation-compose:${Versions.hiltJetpack}"
+                const val compiler = "androidx.hilt:hilt-compiler:${Versions.hiltJetpack}"
             }
         }
     }

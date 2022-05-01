@@ -11,10 +11,10 @@ import nick.template.list.models.ProductsPacket
 import nick.template.list.models.RemoteProduct
 import nick.template.local.dao.ProductsDao
 import nick.template.logging.Logger
-import nick.template.remote.services.ProductsService
+import nick.template.remote.client.ProductsClient
 
 class DefaultProductListRepository @Inject constructor(
-    private val service: ProductsService,
+    private val client: ProductsClient,
     private val dao: ProductsDao,
     private val logger: Logger
 ) : ProductListRepository {
@@ -24,7 +24,7 @@ class DefaultProductListRepository @Inject constructor(
             emit(State.Loading)
 
             try {
-                val products = service.cart().entries
+                val products = client.products()
                 emit(State.Success(products))
             } catch (throwable: Throwable) {
                 if (throwable is CancellationException) throw throwable

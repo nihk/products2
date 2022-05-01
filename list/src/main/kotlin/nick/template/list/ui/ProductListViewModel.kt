@@ -25,7 +25,7 @@ import nick.template.mvi.MviViewModel
 
 @HiltViewModel
 internal class ProductListViewModel @Inject constructor(
-    private val productClicks: ProductClicks,
+    private val onProductClicked: OnProductClicked,
     private val repository: ProductListRepository,
     private val logger: Logger,
 ) : MviViewModel<ProductListEvent, ProductListResult, ProductListState, ProductListEffect>(
@@ -68,6 +68,6 @@ internal class ProductListViewModel @Inject constructor(
 
     private fun Flow<ProductClickedEvent>.toProductClickedResults(): Flow<ProductListResult> {
         return onEach { event -> logger.d("Clicked product with id: ${event.id}") }
-            .transformLatest { event -> productClicks.onProductClicked(event.id) }
+            .transformLatest { event -> onProductClicked.onProductClicked(event.id) }
     }
 }
