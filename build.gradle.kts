@@ -8,7 +8,7 @@ buildscript {
 }
 
 plugins {
-    `ben-manes-versions`
+//    `ben-manes-versions`
     `ktlint-gradle`
 }
 

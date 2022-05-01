@@ -6,5 +6,7 @@ plugins {
 androidLibraryConfig()
 
 dependencies {
-    implementation(Dependencies.inject)
+    implementation(Dependencies.Navigation.runtime)
+    implementation(Dependencies.Navigation.compose)
+    withCompose()
 }

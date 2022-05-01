@@ -63,7 +63,6 @@ object Dependencies {
         const val material = "androidx.compose.material:material:${Versions.compose}"
         const val materialIconsCore = "androidx.compose.material:material-icons-core:${Versions.compose}"
         const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${Versions.compose}"
-        const val material3 = "androidx.compose.material3:material3:${Versions.composeMaterial3}"
     }
 
     object Dagger {

@@ -25,6 +25,8 @@ androidAppConfig {
 withKtlint()
 
 dependencies {
+    implementation(project(Modules.list))
+
     implementation(Dependencies.multidex)
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)
@@ -46,15 +48,7 @@ dependencies {
     implementation(Dependencies.Dagger.Hilt.runtime)
     implementation(Dependencies.Lifecycle.runtime)
     implementation(Dependencies.Lifecycle.compose)
-    implementation(Dependencies.Compose.compiler)
-    implementation(Dependencies.Compose.ui)
-    implementation(Dependencies.Compose.uiTooling)
-    implementation(Dependencies.Compose.animation)
-    implementation(Dependencies.Compose.runtime)
-    implementation(Dependencies.Compose.foundation)
-    implementation(Dependencies.Compose.material)
-    implementation(Dependencies.Compose.materialIconsExtended)
-    implementation(Dependencies.Compose.material3)
+    withCompose()
 
 
 //    debugImplementation(Dependencies.leakCanary)

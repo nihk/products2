@@ -1,7 +1,7 @@
 object Versions {
     const val activity = "1.4.0"
     const val annotation = "1.2.0-alpha01"
-    const val androidGradlePlugin = "7.0.0"
+    const val androidGradlePlugin = "7.1.2"
     const val appCompat = "1.4.0-rc01"
     const val archCore = "2.1.0"
     const val androidTest = "1.4.1-alpha03"
