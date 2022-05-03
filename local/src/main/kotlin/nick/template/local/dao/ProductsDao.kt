@@ -10,7 +10,6 @@ import nick.template.local.models.Product
 
 @Dao
 interface ProductsDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(products: List<Product>): List<Long>
 

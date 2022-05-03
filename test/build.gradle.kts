@@ -6,5 +6,6 @@ plugins {
 androidLibraryConfig()
 
 dependencies {
-    implementation(Dependencies.inject)
+    implementation(Dependencies.Kotlin.coroutinesTest)
+    implementation(Dependencies.junit)
 }

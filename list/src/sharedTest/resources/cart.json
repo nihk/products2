@@ -1,0 +1,46 @@
+{
+  "entries": [
+    {
+      "code": "062600300751",
+      "image": "https://assets.beauty.shoppersdrugmart.ca/bb-prod-product-image/062600300751/enfr/01/front/400/white.jpg",
+      "name": "RAPID CLEAR® Spot Gel",
+      "price": "$11.99",
+      "type": "BeautyFace"
+    },
+    {
+      "code": "305210041929",
+      "image": "https://assets.beauty.shoppersdrugmart.ca/bb-prod-product-image/305210041929/enfr/01/front/400/white.jpg",
+      "name": "Eczema Therapy Cream",
+      "price": "$10.49",
+      "type": "BeautyFace"
+    },
+    {
+      "code": "022796934321",
+      "image": "https://assets.beautyboutique.ca/bb-prod-product-image/022796934321/enfr/01/front/400/white.jpg",
+      "name": "Weightless Hydration + Coconut Water Conditioner",
+      "price": "$9.99",
+      "type": "Shampoo"
+    },
+    {
+      "code": "057800088257",
+      "image": "https://assets.beauty.shoppersdrugmart.ca/bb-prod-product-image/057800088257/enfr/01/front/400/white.jpg",
+      "name": "Fabric Cord Elastic",
+      "price": "$8.99",
+      "type": "Accessories"
+    },
+    {
+      "code": "603084575763",
+      "image": "https://assets.beauty.shoppersdrugmart.ca/bb-prod-product-image/603084575763/enfr/01/front/400/white.jpg",
+      "name": "Belle Color",
+      "price": "$8.99",
+      "type": "HairColour"
+    },
+    {
+      "code": "017000145648",
+      "image": "https://assets.beauty.shoppersdrugmart.ca/bb-prod-product-image/17000145648/enfr/01/front/400/white.jpg",
+      "name": "color ULTÎME",
+      "price": "$15.49",
+      "type": "HairColour"
+    }
+  ]
+}
