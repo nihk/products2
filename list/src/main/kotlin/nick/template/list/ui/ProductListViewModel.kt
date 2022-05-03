@@ -1,6 +1,10 @@
 package nick.template.list.ui
 
-import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.savedstate.SavedStateRegistryOwner
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterIsInstance
@@ -23,7 +27,6 @@ import nick.template.list.models.StartLoadingResult
 import nick.template.logging.Logger
 import nick.template.mvi.MviViewModel
 
-@HiltViewModel
 internal class ProductListViewModel @Inject constructor(
     private val onProductClicked: OnProductClicked,
     private val repository: ProductListRepository,
@@ -69,5 +72,25 @@ internal class ProductListViewModel @Inject constructor(
     private fun Flow<ProductClickedEvent>.toProductClickedResults(): Flow<ProductListResult> {
         return onEach { event -> logger.d("Clicked product with id: ${event.id}") }
             .transformLatest { event -> onProductClicked.onProductClicked(event.id) }
+    }
+
+    // todo: use creationextras
+    class Factory @Inject constructor(
+        private val onProductClicked: OnProductClicked,
+        private val repository: ProductListRepository,
+        private val logger: Logger,
+    ) {
+        fun create(owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
+            return object : AbstractSavedStateViewModelFactory(owner, null) {
+                override fun <T : ViewModel> create(
+                    key: String,
+                    modelClass: Class<T>,
+                    handle: SavedStateHandle
+                ): T {
+                    @Suppress("UNCHECKED_CAST")
+                    return ProductListViewModel(onProductClicked, repository, logger) as T
+                }
+            }
+        }
     }
 }

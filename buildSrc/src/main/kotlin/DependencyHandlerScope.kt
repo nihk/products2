@@ -1,8 +1,8 @@
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 fun DependencyHandlerScope.defaultAndroidTestDependencies() {
-    "androidTestImplementation"(Dependencies.Espresso.core)
-    "androidTestImplementation"(Dependencies.Espresso.contrib)
+    "androidTestImplementation"(Dependencies.Compose.uiTest)
+    "debugImplementation"(Dependencies.Compose.uiTestManifest)
     "androidTestImplementation"(Dependencies.AndroidTest.core)
     "androidTestImplementation"(Dependencies.AndroidTest.coreKtx)
     "androidTestImplementation"(Dependencies.AndroidTest.extJunit)

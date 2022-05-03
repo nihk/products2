@@ -29,6 +29,11 @@ dependencies {
     testImplementation(Dependencies.Moshi.runtime)
     testImplementation(Dependencies.Moshi.adapters)
 
+    defaultAndroidTestDependencies()
+    androidTestImplementation(project(Modules.test))
+    androidTestImplementation(Dependencies.Moshi.runtime)
+    androidTestImplementation(Dependencies.Moshi.adapters)
+
     kapt(Dependencies.Dagger.compiler)
     kapt(Dependencies.Dagger.Hilt.compiler)
 }

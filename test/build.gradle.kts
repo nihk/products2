@@ -8,4 +8,5 @@ androidLibraryConfig()
 dependencies {
     implementation(Dependencies.Kotlin.coroutinesTest)
     implementation(Dependencies.junit)
+    implementation(Dependencies.Coil.coil)
 }

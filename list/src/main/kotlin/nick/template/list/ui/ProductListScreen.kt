@@ -23,9 +23,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.ImageLoader
 import coil.compose.AsyncImage
 import javax.inject.Inject
@@ -37,13 +39,16 @@ import nick.template.navigation.Screen
 
 // fixme: throttle clicks
 internal class ProductListScreen @Inject constructor(
+    private val viewModelFactory: ProductListViewModel.Factory,
     private val imageLoader: ImageLoader
 ) : Screen {
-    override val name: String = Name
+    override val name: String = productListName()
 
     @Composable
     override fun Content(arguments: Bundle?) {
-        val viewModel = hiltViewModel<ProductListViewModel>()
+        val viewModel = viewModel<ProductListViewModel>(
+            factory = viewModelFactory.create(LocalSavedStateRegistryOwner.current)
+        )
         val state by viewModel.states.collectAsState()
         val products = state.products
 
@@ -55,7 +60,7 @@ internal class ProductListScreen @Inject constructor(
             Loading()
         }
 
-        if (state.error != null && !products.isNullOrEmpty()) {
+        if (state.error != null && products.isNullOrEmpty()) {
             Error(viewModel)
         }
     }
@@ -116,7 +121,9 @@ internal class ProductListScreen @Inject constructor(
             modifier = Modifier.fillMaxSize()
         ) {
             CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier
+                    .testTag("loading")
+                    .align(Alignment.Center)
             )
         }
     }
@@ -127,7 +134,8 @@ internal class ProductListScreen @Inject constructor(
             modifier = Modifier.fillMaxSize()
         ) {
             Column(
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier.align(Alignment.Center),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(text = stringResource(id = R.string.error_message))
                 Button(onClick = { viewModel.processEvent(FetchProductsEvent) }) {
@@ -136,10 +144,6 @@ internal class ProductListScreen @Inject constructor(
             }
         }
     }
-
-    companion object {
-        const val Name = "product-list"
-    }
 }
 
-fun productListName() = ProductListScreen.Name
+fun productListName() = "product-list"
