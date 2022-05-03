@@ -1,7 +1,7 @@
 package nick.template.navigation
 
 import javax.inject.Inject
-import nick.template.detail.ui.ProductDetailScreen
+import nick.template.detail.ui.productDetailRoute
 import nick.template.list.ui.OnProductClicked
 
 class ToDetailOnProductClicked @Inject constructor(
@@ -9,7 +9,7 @@ class ToDetailOnProductClicked @Inject constructor(
 ) : OnProductClicked {
     override suspend fun onProductClicked(id: String) {
         navigator.process(
-            Navigator.Command.Destination(ProductDetailScreen.route(id))
+            Navigator.Command.Destination(productDetailRoute(id))
         )
     }
 }

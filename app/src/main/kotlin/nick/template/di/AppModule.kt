@@ -2,6 +2,8 @@ package nick.template.di
 
 import android.app.Application
 import androidx.room.Room
+import coil.ImageLoader
+import coil.imageLoader
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -27,6 +29,9 @@ interface AppModule {
 
         @Provides
         fun productsDao(appDatabase: AppDatabase): ProductsDao = appDatabase.productsDao()
+
+        @Provides
+        fun imageLoader(application: Application): ImageLoader = application.imageLoader
     }
 
     @Binds

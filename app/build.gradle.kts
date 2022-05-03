@@ -54,10 +54,10 @@ dependencies {
     implementation(Dependencies.Navigation.compose)
     implementation(Dependencies.Dagger.Hilt.runtime)
     implementation(Dependencies.Dagger.Hilt.Jetpack.navigation)
+    implementation(Dependencies.Coil.compose)
     withCompose()
 
-
-//    debugImplementation(Dependencies.leakCanary)
+    debugImplementation(Dependencies.leakCanary)
 
     testImplementation(Dependencies.junit)
     defaultAndroidTestDependencies()

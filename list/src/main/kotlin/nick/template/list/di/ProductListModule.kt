@@ -14,7 +14,7 @@ import nick.template.remote.client.ProductsClient
 
 @Module
 @InstallIn(ViewModelComponent::class)
-interface ProductListModule {
+internal interface ProductListModule {
     @Binds
     @IntoSet
     fun productListScreen(screen: ProductListScreen): Screen

@@ -1,6 +1,6 @@
 package nick.template.list.models
 
-sealed class ProductsPacket {
+internal sealed class ProductsPacket {
     abstract val products: List<ProductListItem>?
 
     data class Cached(override val products: List<ProductListItem>) : ProductsPacket()

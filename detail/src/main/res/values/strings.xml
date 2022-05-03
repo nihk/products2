@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="product_type_formatter">Product type: %s</string>
+    <string name="product_code_formatter">Code: %s</string>
+</resources>

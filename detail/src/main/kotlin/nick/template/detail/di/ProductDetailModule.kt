@@ -10,7 +10,7 @@ import nick.template.navigation.Screen
 
 @Module
 @InstallIn(ViewModelComponent::class)
-interface ProductDetailModule {
+internal interface ProductDetailModule {
     @Binds
     @IntoSet
     fun productDetailScreen(screen: ProductDetailScreen): Screen

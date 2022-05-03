@@ -13,7 +13,7 @@ import nick.template.local.dao.ProductsDao
 import nick.template.logging.Logger
 import nick.template.remote.client.ProductsClient
 
-class DefaultProductListRepository @Inject constructor(
+internal class DefaultProductListRepository @Inject constructor(
     private val client: ProductsClient,
     private val dao: ProductsDao,
     private val logger: Logger

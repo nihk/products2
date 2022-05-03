@@ -37,7 +37,7 @@ interface ProductsDao {
             WHERE id = :id
         """
     )
-    fun queryById(id: String): Flow<Product>
+    fun queryById(id: String): Flow<Product?>
 
     @Transaction
     suspend fun nukeThenInsert(products: List<Product>): List<Long> {
