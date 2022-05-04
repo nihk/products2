@@ -80,7 +80,8 @@ private fun <T : BaseExtension> Project.androidConfig() = android<T>().apply {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_1_8.toString()
             freeCompilerArgs = listOf(
-                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
+                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-Xjvm-default=compatibility"
             )
         }
     }

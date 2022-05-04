@@ -1,10 +1,8 @@
 package nick.template.list.ui
 
-import androidx.lifecycle.AbstractSavedStateViewModelFactory
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.savedstate.SavedStateRegistryOwner
+import androidx.lifecycle.viewmodel.CreationExtras
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterIsInstance
@@ -74,23 +72,14 @@ internal class ProductListViewModel @Inject constructor(
             .transformLatest { event -> onProductClicked.onProductClicked(event.id) }
     }
 
-    // todo: use creationextras
     class Factory @Inject constructor(
         private val onProductClicked: OnProductClicked,
         private val repository: ProductListRepository,
         private val logger: Logger,
-    ) {
-        fun create(owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
-            return object : AbstractSavedStateViewModelFactory(owner, null) {
-                override fun <T : ViewModel> create(
-                    key: String,
-                    modelClass: Class<T>,
-                    handle: SavedStateHandle
-                ): T {
-                    @Suppress("UNCHECKED_CAST")
-                    return ProductListViewModel(onProductClicked, repository, logger) as T
-                }
-            }
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+            @Suppress("unchecked_cast")
+            return ProductListViewModel(onProductClicked, repository, logger) as T
         }
     }
 }

@@ -1,10 +1,8 @@
 package nick.template.detail.ui
 
-import androidx.lifecycle.AbstractSavedStateViewModelFactory
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.savedstate.SavedStateRegistryOwner
+import androidx.lifecycle.viewmodel.CreationExtras
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterIsInstance
@@ -55,22 +53,17 @@ internal class ProductDetailViewModel(
             .map { product -> LoadProductResult(product.toProductDetailItem()) }
     }
 
-    // todo: use creationextras
     class Factory @Inject constructor(
         private val dao: ProductsDao,
         private val logger: Logger
     ) {
-        fun create(
-            id: String,
-            owner: SavedStateRegistryOwner
-        ): ViewModelProvider.Factory {
-            return object : AbstractSavedStateViewModelFactory(owner, null) {
+        fun create(id: String): ViewModelProvider.Factory {
+            return object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(
-                    key: String,
                     modelClass: Class<T>,
-                    handle: SavedStateHandle
+                    extras: CreationExtras
                 ): T {
-                    @Suppress("UNCHECKED_CAST")
+                    @Suppress("unchecked_cast")
                     return ProductDetailViewModel(dao, id, logger) as T
                 }
             }

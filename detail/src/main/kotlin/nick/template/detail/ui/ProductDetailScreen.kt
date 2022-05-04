@@ -15,7 +15,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -41,9 +40,7 @@ internal class ProductDetailScreen @Inject constructor(
     @Composable
     override fun Content(arguments: Bundle?) {
         val id = requireNotNull(arguments?.getString(ArgId))
-        val viewModel = viewModel<ProductDetailViewModel>(
-            factory = viewModelFactory.create(id, LocalSavedStateRegistryOwner.current)
-        )
+        val viewModel = viewModel<ProductDetailViewModel>(factory = viewModelFactory.create(id))
         val state by viewModel.states.collectAsState()
         val product = state.product
 
