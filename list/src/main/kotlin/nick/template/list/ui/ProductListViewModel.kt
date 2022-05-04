@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.transformLatest
+import nick.template.detail.ui.throttleFirst
 import nick.template.list.data.ProductListRepository
 import nick.template.list.models.FetchProductsEvent
 import nick.template.list.models.FetchProductsResult
@@ -68,7 +69,8 @@ internal class ProductListViewModel @Inject constructor(
     }
 
     private fun Flow<ProductClickedEvent>.toProductClickedResults(): Flow<ProductListResult> {
-        return onEach { event -> logger.d("Clicked product with id: ${event.id}") }
+        return throttleFirst(500L) // Workaround for androidx Navigation fast clicking
+            .onEach { event -> logger.d("Clicked product with id: ${event.id}") }
             .transformLatest { event -> onProductClicked.onProductClicked(event.id) }
     }
 

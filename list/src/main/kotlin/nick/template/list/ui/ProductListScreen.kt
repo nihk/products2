@@ -36,7 +36,6 @@ import nick.template.list.models.ProductClickedEvent
 import nick.template.list.models.ProductListItem
 import nick.template.navigation.Screen
 
-// fixme: throttle clicks
 internal class ProductListScreen @Inject constructor(
     private val viewModelFactory: ProductListViewModel.Factory,
     private val imageLoader: ImageLoader
