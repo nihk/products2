@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.transformLatest
-import nick.template.detail.ui.throttleFirst
+import nick.template.list.data.throttleFirst
 import nick.template.list.data.ProductListRepository
 import nick.template.list.models.FetchProductsEvent
 import nick.template.list.models.FetchProductsResult

@@ -1,4 +1,4 @@
-package nick.template.detail.ui
+package nick.template.list.data
 
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
