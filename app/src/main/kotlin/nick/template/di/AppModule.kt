@@ -7,8 +7,10 @@ import coil.imageLoader
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 import nick.template.data.AppDatabase
 import nick.template.local.dao.ProductsDao
 import nick.template.logging.AndroidLogger
@@ -21,6 +23,7 @@ interface AppModule {
         @Provides
         fun appResources(application: Application) = application.resources
 
+        @Singleton
         @Provides
         fun appDatabase(application: Application): AppDatabase {
             return Room.databaseBuilder(application, AppDatabase::class.java, AppDatabase.name)
@@ -34,6 +37,7 @@ interface AppModule {
         fun imageLoader(application: Application): ImageLoader = application.imageLoader
     }
 
+    @Reusable
     @Binds
     fun logger(logger: AndroidLogger): Logger
 }

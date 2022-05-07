@@ -69,7 +69,7 @@ internal class ProductListViewModel @Inject constructor(
     }
 
     private fun Flow<ProductClickedEvent>.toProductClickedResults(): Flow<ProductListResult> {
-        return throttleFirst(500L) // Workaround for androidx Navigation fast clicking
+        return throttleFirst() // Workaround for androidx Navigation fast clicking
             .onEach { event -> logger.d("Clicked product with id: ${event.id}") }
             .transformLatest { event -> onProductClicked.onProductClicked(event.id) }
     }
