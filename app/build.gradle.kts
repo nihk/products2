@@ -1,7 +1,7 @@
 plugins {
     `android-application`
-    kotlin("android")
-    kotlin("kapt")
+    `kotlin-android`
+    kapt
     hilt
     ksp
 }

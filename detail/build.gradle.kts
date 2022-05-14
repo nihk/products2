@@ -1,7 +1,7 @@
 plugins {
     `android-library`
-    kotlin("android")
-    kotlin("kapt")
+    `kotlin-android`
+    kapt
     hilt
 }
 

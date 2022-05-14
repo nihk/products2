@@ -1,6 +1,6 @@
 plugins {
     `android-library`
-    kotlin("android")
+    `kotlin-android`
 }
 
 androidLibraryConfig()
