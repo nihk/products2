@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.merge
-import nick.template.list.ui.productListName
+import nick.template.di.StartDestination
 import nick.template.models.MainEffect
 import nick.template.models.MainEvent
 import nick.template.models.MainResult
@@ -19,11 +19,12 @@ import nick.template.navigation.Screen
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
+    @StartDestination startDestination: String,
     screens: Set<@JvmSuppressWildcards Screen>,
     private val navigator: Navigator
 ) : MviViewModel<MainEvent, MainResult, MainState, MainEffect>(
     MainState(
-        startDestination = productListName(),
+        startDestination = startDestination,
         screens = screens
     )
 ) {
